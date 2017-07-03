@@ -8,7 +8,7 @@ var util = require('util');
 
 router.get('/:location', function(req, res, next) {
   var loc=req.params.location;
-  var location= loc; // + ', bd';  // composing the location
+  var location= loc;
   console.log(location);
 
 
@@ -25,7 +25,7 @@ YQLP.exec("SELECT woeid FROM geo.places(1) WHERE text=@text",{text:location}, fu
 	}
 	else
 	{
-	data={"response":"Location not fount"};
+	data={"response":"Location not found in WOEID database"};
 	res.json(data);
 	return;
 		}
